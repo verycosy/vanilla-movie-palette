@@ -99,27 +99,36 @@ const sortColors = colors => {
 };
 
 function init() {
-  let preview = "";
+  fetch(
+    `https://api.github.com/repos/positive-jinho/movie-palette/contents/img/`,
+    {
+      method: "GET"
+    }
+  ).then(res => {
+    res.json().then(list => {
+      let preview = "";
 
-  DB.forEach(element => {
-    preview += `
+      list.forEach(element => {
+        preview += `
         <div class="preview">
             <img class="preview__img" data-src="${
-              element.imageUrl
+              element.path
             }" crossorigin="Anonymous" />
             <div class="preview__palette-container"></div>
-            <div class="preview__title"><b>${element.title}</div>
+            <div class="preview__title"><b>${element.name}</div>
         </div>`;
+      });
+
+      previewContainer.innerHTML = preview;
+
+      const imgList = document.getElementsByClassName("preview__img");
+
+      for (let e of imgList) {
+        e.addEventListener("load", getPalette);
+        io.observe(e);
+      }
+    });
   });
-
-  previewContainer.innerHTML = preview;
-
-  const imgList = document.getElementsByClassName("preview__img");
-
-  for (let e of imgList) {
-    e.addEventListener("load", getPalette);
-    io.observe(e);
-  }
 }
 
 if (previewContainer) {
