@@ -115,7 +115,9 @@ function init() {
               element.path
             }" crossorigin="Anonymous" />
             <div class="preview__palette-container"></div>
-            <div class="preview__title"><b>${element.name}</div>
+            <div class="preview__title"><b>${element.name
+              .replace(".jpg", "")
+              .replace(" dir. ", "</b><br>")}</div>
         </div>`;
       });
 
@@ -132,5 +134,5 @@ function init() {
 }
 
 if (previewContainer) {
-  init();
+  //init();
 }
