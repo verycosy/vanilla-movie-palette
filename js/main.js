@@ -134,5 +134,5 @@ function init() {
 }
 
 if (previewContainer) {
-  //init();
+  init();
 }
