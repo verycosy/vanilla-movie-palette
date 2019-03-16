@@ -149,7 +149,7 @@ function init() {
         <div class="preview">
             <img class="preview__img" data-src="${
               element.imageUrl
-            }" cross-origin/>
+            }" crossorigin="Anonymous" />
             <div class="preview__palette-container"></div>
             <div class="preview__title"><b>${element.title}</div>
         </div>`;

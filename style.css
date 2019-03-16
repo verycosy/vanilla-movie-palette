@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Nanum+Myeongjo");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR");
 
-#moviePalette {
+body {
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,7 @@
   justify-content: center;
   font-family: "Noto Sans KR", sans-serif;
 }
+
 .logo {
   color: #811b21;
   font-family: "Amatic SC", cursive;
@@ -19,7 +20,7 @@
 }
 
 .preview {
-  width: 500px;
+  max-width: 500px;
   border-radius: 4px;
   border: 1px solid #ddd;
   margin-bottom: 30px;
@@ -47,6 +48,11 @@
   width: 100%;
   height: 60px;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.preview__palette:hover {
+  transform: scale(1.8);
 }
 
 .layer {
